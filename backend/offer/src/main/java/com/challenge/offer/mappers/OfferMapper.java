@@ -20,6 +20,8 @@ public interface OfferMapper {
     @Mappings({
             @Mapping(target = "id",source = "id"),
             @Mapping(target = "name",source = "name"),
+            @Mapping(target = "price_value",source = "price_value"),
+            @Mapping(target = "description",source = "description"),
             @Mapping(target = "characteristic_id",source = "characteristic_id")
     })
     OfferDto offerEntityToOfferDto(OfferEntity offerEntity);

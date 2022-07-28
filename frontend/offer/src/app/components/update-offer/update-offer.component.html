@@ -1,0 +1,32 @@
+<form>
+  <div class="form-group row">
+    <label for="name" class="col-sm-2 col-form-label">Nombre</label>
+    <div>
+      <input type="text" [(ngModel)]="offerChosen.name" class="form-control" id="name" name="name">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="price_value" class="col-sm-2 col-form-label">Precio</label>
+    <div>
+      <input type="number" [(ngModel)]="offerChosen.price_value" class="form-control" id="price_value" name="price_value">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="characteristic" class="col-sm-2 col-form-label">Caracteristicas</label>
+    <div>
+      <select [(ngModel)]="characteristicChosen.id" class="form-control" id="characteristic" name="characteristic">
+        <option *ngFor="let char of characteristics">{{char.id}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="description" class="col-sm-2 col-form-label">Descripcion</label>
+    <div>
+      <textarea [(ngModel)]="offerChosen.description" class="form-control" id="description" rows="3"  name="description"></textarea>
+    </div>
+  </div>
+  <div class="btn-group">
+    <div><button type="button" (click)="cancel()" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button></div>
+    <div><button type="button" (click)="update()" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button></div>
+  </div>
+</form>

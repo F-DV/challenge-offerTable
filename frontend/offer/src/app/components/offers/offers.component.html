@@ -1,0 +1,40 @@
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Description</th>
+      <th scope="col">Characteristics</th>
+      <th scope="col">  </th>
+      <th scope="col">  </th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let offer of offers">
+    <tr>
+      <th scope="row">{{offer.name}}</th>
+      <td>{{offer.price_value}}</td>
+      <td>{{offer.description}}</td>
+      <td>{{offer.characteristic_id.name}}</td>
+      <!-- Button trigger modal -->
+      <td><button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="edit(offer.id)">Edit</button></td>
+      <td><button type="button" class="btn btn-dark" (click)="deletOffer(offer.id)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- Modal editar -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Editar Oferta</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-update-offer [assingId]="editId"></app-update-offer>
+      </div>
+    </div>
+  </div>
+</div>
+

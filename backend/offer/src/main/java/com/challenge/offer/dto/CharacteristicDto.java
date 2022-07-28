@@ -1,25 +1,16 @@
-package com.challenge.offer.entities;
+package com.challenge.offer.dto;
 
-import javax.persistence.*;
 import java.util.Objects;
 
-/**
- * @author FelipeQG
- * Clase que representa la tabla characteristics en la
- * base de datos
- */
-@Entity
-@Table(name = "characteristics")
-public class CharacteristicEntity {
+public class CharacteristicDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Id")
     private Long id;
-
-    @Column(name = "Name")
     private String name;
 
+    public CharacteristicDto(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
@@ -41,7 +32,7 @@ public class CharacteristicEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CharacteristicEntity that = (CharacteristicEntity) o;
+        CharacteristicDto that = (CharacteristicDto) o;
         return Objects.equals(id, that.id) && Objects.equals(name, that.name);
     }
 
@@ -52,7 +43,7 @@ public class CharacteristicEntity {
 
     @Override
     public String toString() {
-        return "CharacteristicEntity{" +
+        return "CharacteristicDto{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
